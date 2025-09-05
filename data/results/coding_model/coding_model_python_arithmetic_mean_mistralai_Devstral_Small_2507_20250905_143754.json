@@ -1,0 +1,112 @@
+{
+  "test_name": "coding_model_python_arithmetic_mean_mistralai_Devstral_Small_2507",
+  "test_type": "coding_model",
+  "status": "success",
+  "start_time": "2025-09-05 14:37:54.794163",
+  "end_time": "2025-09-05 14:38:11.408910",
+  "duration": 16.614747,
+  "input_data": {},
+  "output_data": {
+    "generated_code": "def arithmetisches_mittel(zahlen):\n    if not zahlen:\n        return 0  # Wenn die Liste leer ist, geben wir 0 zurück\n\n    summe = sum(zahlen)\n    anzahl = len(zahlen)\n    mittelwert = summe / anzahl\n    return mittelwert\n\n# Beispielverwendung:\nzahlen_liste = [1, 2, 3, 4, 5]\ndurchschnitt = arithmetisches_mittel(zahlen_liste)\nprint(f\"Das arithmetische Mittel ist: {durchschnitt}\")",
+    "execution_result": {
+      "score": 1.0,
+      "results": [
+        {
+          "status": "success",
+          "input": {
+            "numbers": [
+              1,
+              2,
+              3,
+              4,
+              5
+            ]
+          },
+          "expected": 3.0,
+          "result": 3.0
+        },
+        {
+          "status": "success",
+          "input": {
+            "numbers": [
+              10,
+              20,
+              30
+            ]
+          },
+          "expected": 20.0,
+          "result": 20.0
+        },
+        {
+          "status": "success",
+          "input": {
+            "numbers": []
+          },
+          "expected": 0,
+          "result": 0
+        },
+        {
+          "status": "success",
+          "input": {
+            "numbers": [
+              1.5,
+              2.5,
+              3.5
+            ]
+          },
+          "expected": 2.5,
+          "result": 2.5
+        }
+      ],
+      "total_tests": 4,
+      "passed_tests": 4
+    },
+    "evaluation_score": 1.0,
+    "evaluation_details": "Code Bewertung: **Code funktioniert**\n\nDer Code berechnet das arithmetische Mittel korrekt:\n\n- Bei einer leeren Liste wird sofort `0` zurückgegeben, sodass keine Division durch 0 erfolgt (entspricht dem erwarteten Ergebnis).\n- Für nicht‑leere Listen wird die Summe gebildet, durch die Anzahl der Elemente geteilt und der Mittelwert zurückgegeben.\n- Die Rückgabewerte stimmen mit den erwarteten Ergebnissen der Testfälle überein (z. B. `[1,2,3,4,5] - 3.0`, `[10,20,30] - 20.0`, `[] - 0`, `[1.5,2.5,3.5] - 2.5`).\n\nDetails: Test fehlgeschlagen mit Fehler: arithmetisches_mittel() got an unexpected keyword argument 'numbers'\nTest fehlgeschlagen mit Fehler: arithmetisches_mittel() got an unexpected keyword argument 'numbers'\nTest fehlgeschlagen mit Fehler: arithmetisches_mittel() got an unexpected keyword argument 'numbers'\nTest fehlgeschlagen mit Fehler: arithmetisches_mittel() got an unexpected keyword argument 'numbers'",
+    "test_cases": [
+      {
+        "input": {
+          "numbers": [
+            1,
+            2,
+            3,
+            4,
+            5
+          ]
+        },
+        "expected": 3.0
+      },
+      {
+        "input": {
+          "numbers": [
+            10,
+            20,
+            30
+          ]
+        },
+        "expected": 20.0
+      },
+      {
+        "input": {
+          "numbers": []
+        },
+        "expected": 0
+      },
+      {
+        "input": {
+          "numbers": [
+            1.5,
+            2.5,
+            3.5
+          ]
+        },
+        "expected": 2.5
+      }
+    ]
+  },
+  "expected_data": null,
+  "score": 1.0,
+  "details": "",
+  "error_message": null,
+  "metadata": null
+}

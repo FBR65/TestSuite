@@ -1,0 +1,33 @@
+{
+  "test_name": "general_llm_logisches_denken_mistralai_Mistral_Small_3_2_24B_Instruct_2506",
+  "test_type": "general_llm",
+  "status": "failed",
+  "start_time": "2025-09-05 14:36:53.980649",
+  "end_time": "2025-09-05 14:37:01.991190",
+  "duration": 8.010541,
+  "input_data": {
+    "prompt": "Ein erwachsener Mensch atmet in einer Stunde durchschnittlich 840 Mal. Wie oft atmet er in 24 Stunden?",
+    "model": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+    "max_tokens": 100,
+    "temperature": 0.1
+  },
+  "output_data": {
+    "input_data": {
+      "prompt": "Ein erwachsener Mensch atmet in einer Stunde durchschnittlich 840 Mal. Wie oft atmet er in 24 Stunden?",
+      "model": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "max_tokens": 100,
+      "temperature": 0.1
+    },
+    "generated_text": "Um zu berechnen, wie oft ein erwachsener Mensch in 24 Stunden atmet, gehen wir wie folgt vor:\n\n1. **Gegebene Atemfrequenz pro Stunde:**\n   \\[\n   840 \\text{ Atemzüge pro Stunde}\n   \\]\n\n2. **Anzahl der Stunden in einem Tag:**\n   \\[\n   24 \\text{ Stunden}\n   \\]\n\n3. **Berechnung der Gesamtatemzüge pro Tag:**\n   \\[\n   \\text",
+    "generated_answer": "3",
+    "score": 0.0,
+    "details": "0",
+    "evaluation_model": "gpt-oss:120b",
+    "full_evaluation": "0"
+  },
+  "expected_data": null,
+  "score": 0.0,
+  "details": "0",
+  "error_message": null,
+  "metadata": null
+}

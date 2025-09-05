@@ -1,0 +1,13 @@
+Nenne mir die Spaltungsprodukte von Methan und deren industrielle Verwendung.
+
+Methan (CH4) ist ein farbloses, geruchloses und ungiftiges Gas, das die Hauptkomponente von Erdgas ist. Wenn es unter Druck oder in Anwesenheit bestimmter Katalysatoren steht, kann Methan in verschiedene Produkte gespalten werden, die in verschiedenen Industrien weit verbreitet sind. Hier sind einige der wichtigsten Spaltungsprodukte von Methan und ihre industriellen Verwendungen:
+
+1. Wasserstoffgas (H2): Wenn Methan mit Dampf bei einer Temperatur von etwa 1000°C über einen Nickelkatalysator gespalten wird, entsteht Wasserstoffgas. Dies wird als Dampfreformierung bezeichnet. Wasserstoffgas wird in der Raffinerie zur Entschwefelung von Brennstoffen verwendet und auch zur Herstellung von Ammoniak für Düngemittel sowie zur Synthese von Methanol und anderen chemischen Stoffen verwendet.
+
+2. Kohlenstoff (C): Wenn Methan ohne Dampf bei höheren Temperaturen (etwa 1200°C) über einen Kobalt- oder Nickelkatalysator gespalten wird, entsteht festes Kohlenstoff. Dieser Prozess wird als Trockenreformierung bezeichnet. Festes Kohlenstoffpulver wird in der Metallurgie, als Schleifmittel, in Batteriekathoden und in vielen anderen Anwendungen verwendet.
+
+3. Methanol (CH3OH): Wenn Methan in Gegenwart eines speziellen Katalysators mit Wasserdampf bei etwa 1000°C gespalten wird, entsteht Methanol. Dieser Prozess wird als Methanol-Synthese bezeichnet. Methanol ist ein wichtiger Rohstoff zur Herstellung von Formaldehyd, das wiederum zur Herstellung von Harzen, Kunststoffen und Textilien verwendet wird.
+
+4. Acetylen (C2H2): Wenn Methan mit elektrischen Lichtbögen bei etwa 3000°C gespalten wird, entsteht Acetylen. Dieser Prozess wird als partielle Oxidation bezeichnet. Acetylen wird zur Herstellung von Polyvinylacetat, Acrylharzen, synthetischem Kautschuk und anderen Polymeren sowie als Brenngas in Schneidbrennern und Lötbrennern verwendet.
+
+Zusammenfassend haben die Spaltungsprodukte von Methan - Wasserstoffgas, Kohlenstoff, Methanol und Acetylen - alle wichtige industrielle Anwendungen in Bereichen wie Raffinerie, Chemikalien, Metallurgie und Textilien.

@@ -1,0 +1,23 @@
+{
+  "test_name": "audio_model_transcription_voxtral",
+  "test_type": "audio_model",
+  "status": "success",
+  "start_time": "2025-09-05 14:38:53.973987",
+  "end_time": "2025-09-05 14:39:10.843874",
+  "duration": 16.869887,
+  "input_data": {},
+  "output_data": {
+    "generated_text": "Die deutsche Energiepolitik hat sich in den letzten Jahren stark auf eine nachhaltige und auf erneuerbare Energien basierende Strategie konzentriert, um mit dem weltweiten Trend zur Reduzierung von Treibhausgasemissionen Schritt zu halten und gleichzeitig die Energieversorgungssicherheit zu gewährleisten. Dieser Wandel wurde durch verschiedene Gesetze und Programme unterstützt, darunter das Erneuerbare-Energien-Gesetz, das den Ausbau erneuerbarer Energien fördert, sowie das Energiekonzept 2050 der Bundesregierung, welches einen Übergang zu einem CO2-neutralen Wirtschaftsmodel bis 2050 vorsieht.\n\nChancen für Unternehmen:\n\n1. Marktzugang: Durch die Förderung erneuerbarer Energien hat Deutschland eine Position als einer der führenden Märkte für grüne Technologien gestärkt. Dies ermöglicht es deutschen Unternehmen, neue Produkte und Dienstleistungen im Bereich erneuerbare Energien zu entwickeln und zu produzieren, was Innovationen vorantreibt und Arbeitsplätze schafft.",
+    "reference_text": "Die deutsche Energiepolitik hat sich in den letzten Jahren stark auf eine nachhaltige und erneuerbare Energie basierende Strategie konzentriert, um mit dem weltweiten Trend zur Reduzierung von\nTreibhausgasemissionen Schritt zu halten und gleichzeitig die Energieversorgungssicherheit\nzu gewährleisten. Dieser Wandel ist durch verschiedene Gesetze und Programme unterstützt\nworden, darunter das Erneuerbare-Energien-Gesetz (EEG), das den Ausbau erneuerbarer\nEnergien fördert, sowie das Energiekonzept 2050 der Bundesregierung, welches einen Übergang zum CO2-neutralen Wirtschaftsmodell bis 2050 vorsieht.\n\nChancen für Unternehmen:\n1. Marktzugang: \nDurch die Förderung erneuerbarer Energien hat Deutschland\nseine Position als einer der führenden Märkte für grüne\nTechnologien gestärkt. Dies ermöglicht es deutschen\nUnternehmen, neue Produkte und Dienstleistungen im Bereich\nerneuerbare Energien zu entwickeln und zu produzieren, was\nInnovationen vorantreibt und Arbeitsplätze schafft.",
+    "score": 0.9475626439528942,
+    "evaluation_details": "0.86",
+    "audio_file": "Audio/1.wav",
+    "method": "mistral_common_voxtral",
+    "prompt_used": "Transkribiere diese Audiodatei ins Deutsche."
+  },
+  "expected_data": null,
+  "score": 0.9475626439528942,
+  "details": "",
+  "error_message": null,
+  "metadata": null
+}

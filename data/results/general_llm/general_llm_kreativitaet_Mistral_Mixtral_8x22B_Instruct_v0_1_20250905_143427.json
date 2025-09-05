@@ -1,0 +1,32 @@
+{
+  "test_name": "general_llm_kreativitaet_Mistral_Mixtral_8x22B_Instruct_v0_1",
+  "test_type": "general_llm",
+  "status": "success",
+  "start_time": "2025-09-05 14:34:27.985238",
+  "end_time": "2025-09-05 14:34:44.183829",
+  "duration": 16.198591,
+  "input_data": {
+    "prompt": "Entwickle ein Szenario für ein Theaterstück, das auf einfühlsame Weise zeigt, wie Antidepressiva wirken und welche Auswirkungen sie auf das Leben der Protagonisten haben.",
+    "model": "Mistral/Mixtral-8x22B-Instruct-v0.1",
+    "max_tokens": 500,
+    "temperature": 0.8
+  },
+  "output_data": {
+    "input_data": {
+      "prompt": "Entwickle ein Szenario für ein Theaterstück, das auf einfühlsame Weise zeigt, wie Antidepressiva wirken und welche Auswirkungen sie auf das Leben der Protagonisten haben.",
+      "model": "Mistral/Mixtral-8x22B-Instruct-v0.1",
+      "max_tokens": 500,
+      "temperature": 0.8
+    },
+    "generated_text": "Titel: \"Pillen der Hoffnung\"\n\nSzenario:\n\nEin Theaterstück in zwei Akten, das in der Gegenwart spielt.\n\nAkt 1:\n\nDas Stück beginnt in einer Psychiater-Praxis, in der drei Patienten warten, um ihre Antidepressiva-Verschreibungen zu erneuern. Als sie an der Reihe sind, erfahren wir, dass jeder von ihnen eine andere Ursache für seine Depression hat: Verlust, Trauma und genetische Veranlagung. Die Psychiaterin, Dr. Sarah, erklärt ihnen, wie Antidepressiva funktionieren und was sie von der Behandlung erwarten können. Im Laufe des Aktes erfahren wir mehr über das Leben der Patienten und die Schwierigkeiten, die sie durchmachen.\n\nAkt 2:\n\nIm zweiten Akt erleben wir, wie die Patienten ihre Antidepressiva-Behandlung beginnen. Sie haben verschiedene Reaktionen auf die Medikamente: Einige fühlen sich besser, andere nicht so sehr. Wir beobachten, wie sich ihre Beziehungen zu ihren Familien, Freunden und Kollegen entwickeln, während sie lernen, mit ihren Depressionen umzugehen. Es gibt auch Rückschläge und Nebenwirkungen, die die Patienten überwinden müssen. Am Ende des Aktes haben die Patienten Fortschritte gemacht, aber es ist klar, dass ihre Kämpfe noch nicht vorbei sind.\n\nDas Theaterstück endet mit einer Szene, in der die Patienten sich in einer Selbsthilfegruppe treffen. Sie sprechen über ihre Erfahrungen mit Antidepressiva und wie sie ihnen geholfen haben, ihre Depressionen zu überwinden. Sie diskutieren auch über die Stigmatisierung, die mit psychischen Erkrankungen verbunden ist, und wie sie ihre Familien und Freunde unterstützen können. Das Stück schließt mit einer Hoffnungsvision, in der die Patienten lern",
+    "score": 0.85,
+    "details": "**Bewertung:** 0.85  \n\n**Begründung:**  \n- **Kreativität:** Der Titel „Pillen der Hoffnung“ ist einprägsam, die Idee einer zweigeteilten Geschichte in einer Psychiater‑Praxis und einer Selbsthilfegruppe ist originell.  \n- **Empathie:** Die Darstellung der drei Patient*innen mit unterschiedlichen Ursachen für ihre Depression (Verlust, Trauma, genetische Veranlagung) und die Beschreibung von Fortschritten, Rückschlägen und Nebenwirkungen zeigen einfühlsames Verständnis.  \n- **Theatergerechte Struktur:** Es gibt einen klaren Aufbau in zwei Akten, einen definierten Ort (Psychiater‑Praxis, später Selbsthilfegruppe) und einen Handlungsbogen, der zu einer hoffnungsvollen Schlusssequenz führt.  \n\nKleinere Mängel:  \n- Die Antwort endet abrupt („…wie sie ihre Familien und Freunde unterstützen können. Das Stück schließt mit einer Hoffnungsvision, in der die Patienten lern…“), sodass das Ende nicht vollständig ausgeführt ist.  \n- Eine explizite Auflistung aller Figuren (z. B. Namen der drei Patient*innen) fehlt.  \n\nTrotz dieser kleinen Unvollständigkeiten erfüllt die Antwort die geforderten Kriterien weitgehend und erhält daher eine hohe, aber nicht perfekte Punktzahl.",
+    "evaluation_model": "gpt-oss:120b",
+    "full_evaluation": "**Bewertung:** 0.85  \n\n**Begründung:**  \n- **Kreativität:** Der Titel „Pillen der Hoffnung“ ist einprägsam, die Idee einer zweigeteilten Geschichte in einer Psychiater‑Praxis und einer Selbsthilfegruppe ist originell.  \n- **Empathie:** Die Darstellung der drei Patient*innen mit unterschiedlichen Ursachen für ihre Depression (Verlust, Trauma, genetische Veranlagung) und die Beschreibung von Fortschritten, Rückschlägen und Nebenwirkungen zeigen einfühlsames Verständnis.  \n- **Theatergerechte Struktur:** Es gibt einen klaren Aufbau in zwei Akten, einen definierten Ort (Psychiater‑Praxis, später Selbsthilfegruppe) und einen Handlungsbogen, der zu einer hoffnungsvollen Schlusssequenz führt.  \n\nKleinere Mängel:  \n- Die Antwort endet abrupt („…wie sie ihre Familien und Freunde unterstützen können. Das Stück schließt mit einer Hoffnungsvision, in der die Patienten lern…“), sodass das Ende nicht vollständig ausgeführt ist.  \n- Eine explizite Auflistung aller Figuren (z. B. Namen der drei Patient*innen) fehlt.  \n\nTrotz dieser kleinen Unvollständigkeiten erfüllt die Antwort die geforderten Kriterien weitgehend und erhält daher eine hohe, aber nicht perfekte Punktzahl."
+  },
+  "expected_data": null,
+  "score": 0.85,
+  "details": "**Bewertung:** 0.85  \n\n**Begründung:**  \n- **Kreativität:** Der Titel „Pillen der Hoffnung“ ist einprägsam, die Idee einer zweigeteilten Geschichte in einer Psychiater‑Praxis und einer Selbsthilfegruppe ist originell.  \n- **Empathie:** Die Darstellung der drei Patient*innen mit unterschiedlichen Ursachen für ihre Depression (Verlust, Trauma, genetische Veranlagung) und die Beschreibung von Fortschritten, Rückschlägen und Nebenwirkungen zeigen einfühlsames Verständnis.  \n- **Theatergerechte Struktur:** Es gibt einen klaren Aufbau in zwei Akten, einen definierten Ort (Psychiater‑Praxis, später Selbsthilfegruppe) und einen Handlungsbogen, der zu einer hoffnungsvollen Schlusssequenz führt.  \n\nKleinere Mängel:  \n- Die Antwort endet abrupt („…wie sie ihre Familien und Freunde unterstützen können. Das Stück schließt mit einer Hoffnungsvision, in der die Patienten lern…“), sodass das Ende nicht vollständig ausgeführt ist.  \n- Eine explizite Auflistung aller Figuren (z. B. Namen der drei Patient*innen) fehlt.  \n\nTrotz dieser kleinen Unvollständigkeiten erfüllt die Antwort die geforderten Kriterien weitgehend und erhält daher eine hohe, aber nicht perfekte Punktzahl.",
+  "error_message": null,
+  "metadata": null
+}

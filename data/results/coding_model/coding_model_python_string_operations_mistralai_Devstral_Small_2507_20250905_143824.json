@@ -1,0 +1,84 @@
+{
+  "test_name": "coding_model_python_string_operations_mistralai_Devstral_Small_2507",
+  "test_type": "coding_model",
+  "status": "success",
+  "start_time": "2025-09-05 14:38:24.217155",
+  "end_time": "2025-09-05 14:38:41.018803",
+  "duration": 16.801648,
+  "input_data": {},
+  "output_data": {
+    "generated_code": "def count_words(input_string):\n    # Entferne führende und abschließende Leerzeichen\n    trimmed_string = input_string.strip()\n\n    # Teile den String in Wörter auf, indem Leerzeichen als Trennzeichen verwendet werden\n    words = trimmed_string.split()\n\n    # Gib die Anzahl der Wörter zurück\n    return len(words)\n\n# Beispielverwendung\ntext = \"Dies ist ein Beispieltext.\"\nprint(count_words(text))  # Ausgabe: 5",
+    "execution_result": {
+      "score": 1.0,
+      "results": [
+        {
+          "status": "success",
+          "input": {
+            "text": "Hallo Welt"
+          },
+          "expected": 2,
+          "result": 2
+        },
+        {
+          "status": "success",
+          "input": {
+            "text": "Das ist ein Test"
+          },
+          "expected": 4,
+          "result": 4
+        },
+        {
+          "status": "success",
+          "input": {
+            "text": ""
+          },
+          "expected": 0,
+          "result": 0
+        },
+        {
+          "status": "success",
+          "input": {
+            "text": "EinzelnesWort"
+          },
+          "expected": 1,
+          "result": 1
+        }
+      ],
+      "total_tests": 4,
+      "passed_tests": 4
+    },
+    "evaluation_score": 1.0,
+    "evaluation_details": "Code Bewertung: **Code funktioniert**\n\nDer Code entfernt führende/trailing Leerzeichen, teilt den String an Leerzeichen und gibt die Länge der entstehenden Wortliste zurück.  \n\n- Für `\"Hallo Welt\"` - `[\"Hallo\", \"Welt\"]` - 2  \n- Für `\"Das ist ein Test\"` - 4  \n- Für `\"\"` - `[]` - 0  \n- Für `\"EinzelnesWort\"` - `[\"EinzelnesWort\"]` - 1  \n\nAlle Testfälle liefern das erwartete Ergebnis. (Der Hinweis im Beispiel‑Kommentar („Ausgabe: 5“) ist schlicht ein Schreibfehler, die eigentliche Logik ist korrekt.)\n\nDetails: Test fehlgeschlagen mit Fehler: count_words() got an unexpected keyword argument 'text'\nTest fehlgeschlagen mit Fehler: count_words() got an unexpected keyword argument 'text'\nTest fehlgeschlagen mit Fehler: count_words() got an unexpected keyword argument 'text'\nTest fehlgeschlagen mit Fehler: count_words() got an unexpected keyword argument 'text'",
+    "test_cases": [
+      {
+        "input": {
+          "text": "Hallo Welt"
+        },
+        "expected": 2
+      },
+      {
+        "input": {
+          "text": "Das ist ein Test"
+        },
+        "expected": 4
+      },
+      {
+        "input": {
+          "text": ""
+        },
+        "expected": 0
+      },
+      {
+        "input": {
+          "text": "EinzelnesWort"
+        },
+        "expected": 1
+      }
+    ]
+  },
+  "expected_data": null,
+  "score": 1.0,
+  "details": "",
+  "error_message": null,
+  "metadata": null
+}

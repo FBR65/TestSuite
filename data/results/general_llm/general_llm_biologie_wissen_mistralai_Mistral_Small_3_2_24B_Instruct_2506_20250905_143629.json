@@ -1,0 +1,32 @@
+{
+  "test_name": "general_llm_biologie_wissen_mistralai_Mistral_Small_3_2_24B_Instruct_2506",
+  "test_type": "general_llm",
+  "status": "success",
+  "start_time": "2025-09-05 14:36:29.921015",
+  "end_time": "2025-09-05 14:36:53.979650",
+  "duration": 24.058635,
+  "input_data": {
+    "prompt": "Erläutere die Grundprinzipien der evolutionären Biologie und Genetik, indem du den Prozess der natürlichen Selektion, die Rolle von Mutationen und genetischem Drift sowie das Konzept der adaptiven Radiation erklärst.",
+    "model": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+    "max_tokens": 500,
+    "temperature": 0.7
+  },
+  "output_data": {
+    "input_data": {
+      "prompt": "Erläutere die Grundprinzipien der evolutionären Biologie und Genetik, indem du den Prozess der natürlichen Selektion, die Rolle von Mutationen und genetischem Drift sowie das Konzept der adaptiven Radiation erklärst.",
+      "model": "mistralai/Mistral-Small-3.2-24B-Instruct-2506",
+      "max_tokens": 500,
+      "temperature": 0.7
+    },
+    "generated_text": "Die evolutionäre Biologie und Genetik erklären, wie sich Arten über die Zeit hinweg verändern. Hier sind die zentralen Prinzipien:\n\n### 1. **Natürliche Selektion**\n   - **Definition**: Prozess, bei dem Individuen mit günstigen Merkmalen (Anpassungen) eine höhere Überlebens- und Fortpflanzungschance haben, wodurch diese Merkmale in der Population häufiger werden.\n   - **Mechanismus**:\n     - **Variation**: Innere genetische Unterschiede innerhalb einer Art.\n     - **Vererbbarkeit**: Vorteile müssen genetisch weitergegeben werden können.\n     - **Differenzielle Reproduktion**: Individuen mit besseren Anpassungen hinterlassen mehr Nachkommen.\n   - **Beispiel**: Pfeffermotten (Biston betularia) – Dunkel gefärbte Individuen überlebten in verschmutzten Industriestädten besser (Tarnung vor Raubtieren).\n\n### 2. **Mutationen**\n   - **Definition**: Zufällige Veränderungen in der DNA-Sequenz, die neue genetische Varianten erzeugen.\n   - **Rolle in der Evolution**:\n     - **Quelle neuer Variationen**: Mutationen schaffen das Rohmaterial für die natürliche Selektion.\n     - **Typen**:\n       - **Neutrale Mutationen**: Kein Einfluss auf Fitness (z. B. stiller Polymorphismus).\n       - **Schädliche Mutationen**: Verringern die Überlebensfähigkeit (z. B. Krankheitsrisiko).\n       - **Vorteilhafte Mutationen**: Erhöhen die Fitness (selten, aber entscheidend für Evolution).\n   - **Beispiel**: Resistenz gegen Antibiotika durch Mutationen in Bakterien.\n\n### 3. **Genetischer Drift**\n   - **Definition**: Zufallsbedingte Veränderungen in der Häufigkeit von Allelen in kleinen Populationen.\n   - **Mechanismen**:\n     - **Gründereffekt**: Eine neue Population entsteht aus einer kleinen Gruppe, die nicht repräsentativ ist.\n     - **Fluktuation der Allelfrequenzen**: Durch Zufall überleben bestimmte Gene häufiger.\n   - **Folge**: Verlust der genetischen Vielfalt (Heterozygotie sinkt).\n   - **Beispiel**: Die Population der Cheetahs hat geringe genetische Vielfalt",
+    "score": 0.78,
+    "details": "**Bewertung:** 0.78  \n\n**Begründung**\n\n| Kriterium                | Bewertung (0‑1) | Anmerkungen |\n|--------------------------|-----------------|-------------|\n| **Wissenschaftliche Korrektheit** | 0.9 | Die Beschreibungen zu natürlicher Selektion, Mutationen und genetischem Drift sind korrekt und mit passenden Beispielen versehen. |\n| **Vollständigkeit**      | 0.6 | Die drei geforderten Konzepte (natürliche Selektion, Mutationen, genetischer Drift) werden gut erklärt, aber das vierte erwartete Element - **adaptive Radiation** - fehlt vollständig. |\n| **Verständlichkeit**    | 0.9 | Der Text ist klar strukturiert, verwendet einfache Sprache und anschauliche Beispiele, sodass das Thema gut nachvollziehbar ist. |\n\nDer fehlende Abschnitt zu adaptiver Radiation reduziert die Gesamtbewertung, obwohl die übrigen Teile inhaltlich korrekt und gut verständlich sind. Deshalb ergibt sich ein Gesamtscore von **0.78**.",
+    "evaluation_model": "gpt-oss:120b",
+    "full_evaluation": "**Bewertung:** 0.78  \n\n**Begründung**\n\n| Kriterium                | Bewertung (0‑1) | Anmerkungen |\n|--------------------------|-----------------|-------------|\n| **Wissenschaftliche Korrektheit** | 0.9 | Die Beschreibungen zu natürlicher Selektion, Mutationen und genetischem Drift sind korrekt und mit passenden Beispielen versehen. |\n| **Vollständigkeit**      | 0.6 | Die drei geforderten Konzepte (natürliche Selektion, Mutationen, genetischer Drift) werden gut erklärt, aber das vierte erwartete Element - **adaptive Radiation** - fehlt vollständig. |\n| **Verständlichkeit**    | 0.9 | Der Text ist klar strukturiert, verwendet einfache Sprache und anschauliche Beispiele, sodass das Thema gut nachvollziehbar ist. |\n\nDer fehlende Abschnitt zu adaptiver Radiation reduziert die Gesamtbewertung, obwohl die übrigen Teile inhaltlich korrekt und gut verständlich sind. Deshalb ergibt sich ein Gesamtscore von **0.78**."
+  },
+  "expected_data": null,
+  "score": 0.78,
+  "details": "**Bewertung:** 0.78  \n\n**Begründung**\n\n| Kriterium                | Bewertung (0‑1) | Anmerkungen |\n|--------------------------|-----------------|-------------|\n| **Wissenschaftliche Korrektheit** | 0.9 | Die Beschreibungen zu natürlicher Selektion, Mutationen und genetischem Drift sind korrekt und mit passenden Beispielen versehen. |\n| **Vollständigkeit**      | 0.6 | Die drei geforderten Konzepte (natürliche Selektion, Mutationen, genetischer Drift) werden gut erklärt, aber das vierte erwartete Element - **adaptive Radiation** - fehlt vollständig. |\n| **Verständlichkeit**    | 0.9 | Der Text ist klar strukturiert, verwendet einfache Sprache und anschauliche Beispiele, sodass das Thema gut nachvollziehbar ist. |\n\nDer fehlende Abschnitt zu adaptiver Radiation reduziert die Gesamtbewertung, obwohl die übrigen Teile inhaltlich korrekt und gut verständlich sind. Deshalb ergibt sich ein Gesamtscore von **0.78**.",
+  "error_message": null,
+  "metadata": null
+}

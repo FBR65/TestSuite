@@ -1,0 +1,53 @@
+TECHNISCHE DATEN
+KONA ELEKTRO
+
+ELEKTROMOTOR
+Elektrische Leistung (max.) [kW(PS)] 100 (136) 150 (204)
+Elektrische Nenn Dauerleistung [kW(PS)] 26,3 (35,77) 28,0 (38,08)
+Drehmoment [Nm] 395 395
+Batterietyp Lithium-Ionen-Polymer Lithium-Ionen-Polymer
+Batteriekapazität [kWh] 39,2 64
+Nennleistung [kW] 100 150
+Nennspannung [V] 327 356
+
+FAHREIGENSCHAFTEN
+Höchstgeschwindigkeit [km/h] 155 167
+Beschleunigung von 0-100km/h [Sek.] 9,9 7,9
+
+VERBRAUCH / EMISSIONEN
+Stromverbrauch kombiniert (WLTP) [kWh/100km] 15,0 15,4
+Reichweite elektrisch kombiniert (WLTP) [km] 289 449
+
+ANTRIEB
+Antriebsart Vorderrad Vorderrad
+Getriebe einstufig einstufig
+
+GEWICHT
+Eigengewicht [kg] 1.535 - 1.593 1.685 - 1.743
+Höchstzulässiges Gesamtgewicht [kg] 2.020 2.170
+Dachlast [kg] 80 80
+
+FAHRGESTELL
+Bremsen vorne / hinten Scheibenbremsen / Scheibenbremsen
+Reifen / Felgen vorne / hinten 215/55 R17 MacPherson / Mehrlenker
+Gesamtlänge / Gesamthöhe / Gesamthöhe [mm] 4.180 / 1.600 / 1.570
+Spurweite vorne / hinten [mm] 1.564 / 1.575
+Wendekreisdurchmesser [m] 10,6 10,6
+Kofferraumvolumen nach VDA [Liter] 332 - 1.114 332 - 1.114
+
+LADEGERÄT
+AC-Ladekapazität (1-phasig 230V) [kW] 4,6 4,6
+DC-Ladekapazität (max.) [kW] 50 100
+Ladezeit AC 0-100% (1-phasig 230V) [h] 6:30 9:30
+Ladezeit DC 10-80% [min] 48 49
+
+AUSSTATTUNG
+Sicherheitsausstattung
+- Antiblockiersystem (ABS) ca. 3,9 m/s² ca. 4,0 m/s²
+- Elektronisches Stabilitätsprogramm (ESP)
+- Bergabfahrassistent
+- Reifendruckkontrollsystem (TPMS)
+- Spurhalteassistent
+- Frontkollisionswarner mit Fußgängererkennung
+- Müdigkeitswarner
+- Notbremsassistent
