@@ -1,6 +1,6 @@
 # TestSuite System
 
-Ein umfassendes Bewertungssystem für verschiedene Arten von KI-Modellen, das OpenAI-kompatible APIs für alle Interaktionen verwendet.
+Ein umfassendes Bewertungssystem für verschiedene Arten von KI-Modellen, das OpenAI-kompatible APIs für alle Interaktionen verwendet. Das System ist speziell für den Einsatz in Unternehmensumgebungen konzipiert und stellt sicher, dass alle API-Anwendungen intern bleiben.
 
 ## Übersicht
 
@@ -15,14 +15,26 @@ Das TestSuite System evaluiert vier Haupttypen von KI-Modellen:
 
 ### Voraussetzungen
 
-- Python 3.8 oder höher
-- OpenAI-kompatible API-Schlüssel
-- Stabile Internetverbindung
+- **Python**: 3.9 oder höher (empfohlen)
+- **OpenAI-kompatible APIs**: Lokal betriebene On-Prem APIs
+- **Betriebssystem**: Windows 10/11, Linux oder macOS
+- **Hardware**:
+  - CPU: Mehrkernprozessor empfohlen
+  - RAM: Minimum 8GB, 16GB+ für Audioverarbeitung
+  - Speicher: Minimum 1GB freier Speicher
 
 ### Abhängigkeiten installieren
 
+Das System verwendet moderne Python-Abhängigkeiten und kann mit `pip` oder `uv` installiert werden:
+
+**Mit pip:**
 ```bash
-pip install openai python-dotenv requests pydub SpeechRecognition nltk scikit-learn numpy Pillow opencv-python
+pip install -e .
+```
+
+**Mit uv (empfohlen):**
+```bash
+uv sync
 ```
 
 ### Konfiguration
@@ -32,13 +44,38 @@ pip install openai python-dotenv requests pydub SpeechRecognition nltk scikit-le
 cp config.env.example config.env
 ```
 
-2. Bearbeite `config.env` und trage deine API-Schlüssel ein:
+2. Bearbeite `config.env` und trage deine API-Schlüssel und Endpunkte ein:
 ```bash
-LLM_API_KEY=dein_llm_api_hier
+# Multi-LLM Konfiguration (JSON Format)
+LLM_MODELS="{\"local-gpt-3.5\": \"http://localhost:8001/v1\", \"local-gpt-4\": \"http://localhost:8001/v1\"}"
+
+# Coding-spezifische LLM Konfiguration
+CODING_LLM_MODELS="{\"local-coder\": \"http://localhost:8004/v1\"}"
+
+# VLM-spezifische LLM Konfiguration
+VLM_LLM_MODELS="{\"local-vision\": \"http://localhost:8005/v1\"}"
+
+# Whisper API Konfiguration
 WHISPER_API_KEY=dein_whisper_api_hier
-VISION_API_KEY=dein_vision_api_hier
+WHISPER_API_BASE_URL=http://localhost:8002/v1
+
+# Voxtral API Konfiguration
 VOXTRAL_API_KEY=dein_voxtral_api_hier
+VOXTRAL_API_BASE_URL=http://localhost:8110/v1
+
+# Vision API Konfiguration
+VISION_API_KEY=dein_vision_api_hier
+VISION_API_BASE_URL=http://localhost:8003/v1
+
+# Bewertung LLM Konfiguration
 EVALUATION_API_KEY=dein_evaluation_api_hier
+EVALUATION_API_BASE_URL=http://localhost:8001/v1
+
+# System Konfiguration
+LOG_LEVEL=INFO
+RESULTS_DIR=data/results
+MAX_TEST_DURATION=300
+SIMILARITY_THRESHOLD=0.7
 ```
 
 ## Verwendung
@@ -65,10 +102,10 @@ python main.py --suite vlm
 python main.py --order general_llm coding_model audio_model vlm
 ```
 
-### Optionen
+### Erweiterte Optionen
 
 ```bash
-python main.py --suite all --verbose --save-results --output results.json
+python main.py --suite all --verbose --save-results --output results.json --format json
 ```
 
 #### Optionen im Detail:
@@ -91,6 +128,26 @@ python main.py --suite all --verbose --save-results --output results.json
 - `--save-results`: Ergebnisse automatisch speichern
 
 - `--output, -o`: Ausgabedatei für Ergebnisse
+
+- `--format, -f`: Ausgabeformat der Ergebnisse
+  - `json`: JSON Format (Standard)
+  - `yaml`: YAML Format
+
+### Umgebungsvariablen
+
+Das System unterstützt folgende Umgebungsvariablen:
+
+```bash
+# Logging
+LOG_LEVEL=DEBUG
+
+# Ergebnisse
+RESULTS_DIR=custom_results
+MAX_TEST_DURATION=600
+
+# Bewertung
+SIMILARITY_THRESHOLD=0.75
+```
 
 ## Test Suiten
 
@@ -134,6 +191,20 @@ Umfassende multimodale Tests:
 - **Multimodale Integration**: Kombinierte Text/Audio/Bild-Analyse
 - **Umfassende VLM Bewertung**: Finale Integration aller Aufgaben
 
+### Test Suite Konfiguration
+
+Jede Test Suite kann individuell konfiguriert werden:
+
+```python
+# Beispiel für die Konfiguration einer Test Suite
+from test_suites import GeneralLLMTestSuite
+
+suite = GeneralLLMTestSuite()
+suite.setup_suite()  # Voraussetzungen prüfen
+results = suite.run_all_tests()  # Tests ausführen
+summary = suite.get_suite_summary()  # Ergebnisse zusammenfassen
+```
+
 ## Bewertungssystem
 
 ### Primäre Bewertung
@@ -149,6 +220,23 @@ Jede Bewertung wird durch ein anderes LLM validiert, um Objektivität zu gewähr
 - **Primäre Bewertung**: Automatische Metriken
 - **Sekundäre Bewertung**: Manuelle Bewertung durch LLM
 - **Kombiniertes Ergebnis**: Gewichtete Durchschnittsbewertung
+
+### Bewertungsmetriken im Detail
+
+#### Textvergleich
+- **Cosine Similarity**: Messung der semantischen Ähnlichkeit
+- **BLEU Score**: Bewertung von Übersetzungsqualität
+- **ROUGE Score**: Bewertung von Zusammenfassungsqualität
+
+#### Code-Bewertung
+- **Funktionalitätstests**: Automatische Testfall-Validierung
+- **Code-Analyse**: Syntax- und Logikprüfung
+- **Sicherheit**: Sandboxed Code-Ausführung
+
+#### Audio-Bewertung
+- **Transkriptionsgenauigkeit**: Wort-für-Wort Vergleich
+- **Übersetzungsqualität**: Kontextbezogene Bewertung
+- **Zusammenfassungsrelevanz**: Schlüsselpunkterkennung
 
 ## Ergebnisse
 
@@ -193,6 +281,23 @@ Alle Ergebnisse werden im `data/results/` Verzeichnis gespeichert:
 }
 ```
 
+### Ergebnisinterpretation
+
+- **Erfolgsrate**: Prozentsatz der bestandenen Tests
+- **Durchschnittlicher Score**: Gesamtbewertung aller Tests (0.0 - 1.0)
+- **Status**:
+  - `completed`: Suite erfolgreich ausgeführt
+  - `failed`: Suite mit Fehlern abgeschlossen
+  - `error`: Suite aufgrund von Fehlern nicht ausgeführt
+
+### Berichterstattung
+
+Das System generiert automatisch verschiedene Berichte:
+
+- **JSON-Berichte**: Strukturierte Daten für weitere Verarbeitung
+- **Text-Berichte**: Menschlich lesbare Zusammenfassungen
+- **PDF-Berichte**: Formatierte Berichte für die Präsentation
+
 ## API-Integration
 
 ### Unterstützte Dienste
@@ -202,12 +307,37 @@ Alle Ergebnisse werden im `data/results/` Verzeichnis gespeichert:
 - **Vision API**: Bildverarbeitung (GPT-4-Vision, kompatible)
 - **Voxtral API**: Spezialisierte Audioverarbeitung
 
+### On-Prem API-Unterstützung
+
+Das System ist speziell für den Einsatz mit lokal betriebenen APIs konzipiert:
+
+- **Alle Anwendungen bleiben intern** im Unternehmen
+- **Keine Datenexternung** an externe Dienste wie OpenAI
+- **Unternehmensspezifische Endpunkte** werden unterstützt
+- **Multi-Model Konfiguration** für verschiedene lokale Modelle
+
 ### Fehlerbehandlung
 
-- Automatische Wiederholung bei API-Fehlern
-- Graceful Degradation bei Dienstunverfügbarkeit
-- Detaillierte Fehlerprotokollierung
-- Timeout-Handhabung
+- **Automatische Wiederholung**: Bis zu 3 Versuche bei API-Fehlern
+- **Graceful Degradation**: System bleibt bei Dienstunverfügbarkeit stabil
+- **Detaillierte Protokollierung**: Vollständige Fehleraufzeichnung
+- **Timeout-Handhabung**: Konfigurierbare Timeouts für alle API-Aufrufe
+- **Rate Limiting**: Automatische Anpassung bei API-Limits
+
+### API-Konfiguration
+
+```python
+# Beispiel für die API-Konfiguration
+from config import key_manager
+
+# Hole API-Details für einen Dienst
+api_key = key_manager.get_key("llm", "local-gpt-4")
+base_url = key_manager.get_base_url("llm", "local-gpt-4")
+model = key_manager.get_model("llm", "local-gpt-4")
+
+# Verfügbare Modelle auflisten
+available_models = key_manager.get_available_models("llm")
+```
 
 ## Entwicklung
 
@@ -236,42 +366,112 @@ TestSuite/
 │   └── Bild/              # Bilddateien
 ├── main.py                # Haupt-Einstiegspunkt
 ├── config.env.example     # Konfigurationsvorlage
+├── pyproject.toml         # Projektmetadaten und Abhängigkeiten
+├── requirements.md        # Technische Anforderungen
 └── README.md              # Diese Datei
+```
+
+### Entwicklungsumgebung einrichten
+
+```bash
+# Entwicklungsumgebung mit uv
+uv sync --dev
+
+# Oder mit pip
+pip install -e ".[dev]"
+
+# Pre-commit Hooks einrichten
+pre-commit install
 ```
 
 ### Erweitern des Systems
 
 #### Neue Test Suite hinzufügen
 
-1. Erbe von `BaseTestSuite`
-2. Implementiere `run_all_tests()` und `get_test_description()`
+1. Erbe von [`BaseTestSuite`](test_suites/base_suite.py:12)
+2. Implementiere [`run_all_tests()`](test_suites/base_suite.py:24) und [`get_test_description()`](test_suites/base_suite.py:29)
 3. Füge die Suite zum Orchestrator hinzu
+
+```python
+from test_suites.base_suite import BaseTestSuite
+
+class MyCustomTestSuite(BaseTestSuite):
+    def __init__(self):
+        super().__init__("my_custom_suite")
+    
+    def run_all_tests(self):
+        # Implementiere deine Tests hier
+        pass
+    
+    def get_test_description(self):
+        return "Meine benutzerdefinierte Test Suite"
+```
 
 #### Neue Bewertungsmetriken hinzufügen
 
-1. Erweitere `TextComparator` in `evaluator.py`
+1. Erweitere [`TextComparator`](core/evaluator.py:101) in [`evaluator.py`](core/evaluator.py:1)
 2. Implementiere neue Vergleichsmethoden
 3. Integriere die Metriken in die Bewertungsfunktionen
+
+```python
+class TextComparator:
+    @staticmethod
+    def my_custom_metric(text1: str, text2: str) -> float:
+        # Implementiere deine benutzerdefinierte Metrik
+        return 0.0
+```
+
+### Code-Qualität
+
+Das Projekt verwendet moderne Entwicklungstools:
+
+- **Black**: Code-Formatierung
+- **Flake8**: Code-Linting
+- **MyPy**: Typ-Prüfung
+- **Pytest**: Unit-Tests
+- **Ruff**: Performanter Linter und Formatter
+
+### Testing
+
+```bash
+# Alle Tests ausführen
+pytest
+
+# Tests mit Coverage
+pytest --cov=testsuite
+
+# Spezifische Test Suite testen
+pytest test_suites/test_general_llm.py
+```
 
 ## Troubleshooting
 
 ### Häufige Probleme
 
 1. **API-Schlüssel ungültig**
-   - Überprüfe die Konfigurationsdatei
+   - Überprüfe die Konfigurationsdatei [`config.env`](config.env.example:1)
    - Stelle sicher, dass die API-Schlüssel gültig sind
+   - Prüfe die Netzwerkverbindung zu den lokalen Endpunkten
 
 2. **Netzwerkprobleme**
-   - Überprüfe die Internetverbindung
+   - Überprüfe die Internetverbindung zu den lokalen APIs
    - Teste die API-Endpunkte manuell
+   - Prüfe Firewall-Einstellungen
 
 3. **Audio/Dateifehler**
    - Stelle sicher, dass die Testdateien existieren
    - Überprüfe Dateiformate und Berechtigungen
+   - Prüfe Audio-Treiber unter Windows
 
 4. **Python-Abhängigkeiten**
-   - Installiere alle erforderlichen Pakete
-   - Überprüfe Python-Version (3.8+)
+   - Installiere alle erforderlichen Pakete mit `uv sync`
+   - Überprüfe Python-Version (3.9+)
+   - Aktualisiere pip: `pip install --upgrade pip`
+
+5. **Modellverfügbarkeit**
+   - Stelle sicher, dass die lokalen Modelle laufen
+   - Prüfe die Basis-URLs in der Konfiguration
+   - Überprüfe Modellverfügbarkeit mit API-Tools
 
 ### Debug-Modus
 
@@ -280,13 +480,48 @@ Aktiviere ausführliche Protokollierung:
 python main.py --verbose
 ```
 
+### Diagnose-Tools
+
+```bash
+# Umgebung validieren
+python -c "from config import config; print('Konfiguration geladen')"
+
+# Test Suite Voraussetzungen prüfen
+python -c "from core.orchestrator import orchestrator; print(orchestrator.validate_environment())"
+
+# Einzelne Test Suite debuggen
+python main.py --suite general_llm --verbose
+```
+
+### Logging
+
+Das System generiert detaillierte Log-Dateien:
+
+- **System-Logs**: `data/results/logs/`
+- **Test-Suite-Logs**: Pro Suite separate Log-Dateien
+- **API-Logs**: Alle API-Aufrufe werden protokolliert
+
+Log-Level können konfiguriert werden:
+```bash
+LOG_LEVEL=DEBUG python main.py
+```
+
 ## Lizenz
 
-Dieses Projekt ist Teil des TestSuite Systems.
+Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe [`LICENSE`](LICENSE:1) für weitere Details.
 
 ## Support
 
 Für Fragen und Unterstützung:
-- Überprüfe die Dokumentation
-- Prüfe die Fehlerprotokolle
-- Kontaktiere das Entwicklungsteam
+
+- **Dokumentation**: Lesen Sie diese README und die technischen Anforderungen in [`requirements.md`](requirements.md:1)
+- **Fehlerprotokolle**: Prüfen Sie die Log-Dateien im `data/results/` Verzeichnis
+
+## Changelog
+
+### Version 1.0.0
+- Initial release mit vollständiger Test Suite Unterstützung
+- Multi-Model API Konfiguration
+- On-Prem API Unterstützung
+- Verbesserte Fehlerbehandlung und Logging
+- Automatische Berichterstattung
