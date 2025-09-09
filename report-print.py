@@ -84,7 +84,11 @@ def convert_markdown_to_html(markdown_content):
                 html_lines.append('<ol>')
                 in_list = True
                 list_type = 'ol'
-            html_lines.append(f'<li>{line.split(". ", 1)[1].strip()}</li>')
+            # Remove trailing dot if present
+            list_content = line.split(". ", 1)[1].strip()
+            if list_content.endswith('.'):
+                list_content = list_content[:-1]
+            html_lines.append(f'<li>{list_content}</li>')
         # Tables - collect table lines first
         elif line.startswith('|') and line.endswith('|'):
             if not in_table:
@@ -307,7 +311,25 @@ def generate_html_report():
     # Add DurchgeführteTests.md
     durchgefuehrte_tests = read_markdown_file("DurchgeführteTests.md")
     if durchgefuehrte_tests:
-        html += "<h2>Durchgeführte Tests - TestSuite System</h2>"
+        # Remove duplicate heading from markdown content by replacing h2 with h1
+        durchgefuehrte_tests = durchgefuehrte_tests.replace('<h2>Durchgeführte Tests - TestSuite System</h2>', '')
+        # Remove "5. Allgemeine Testdurchführung" section completely
+        durchgefuehrte_tests = durchgefuehrte_tests.replace('<h2>5. Allgemeine Testdurchführung</h2>', '')
+        # Remove everything from "Testablauf" heading until the next h2 or hr
+        lines = durchgefuehrte_tests.split('\n')
+        filtered_lines = []
+        skip_section = False
+        for line in lines:
+            if '<h3>Testablauf</h3>' in line:
+                skip_section = True
+                continue
+            if skip_section:
+                if line.startswith('<h2>') or line.startswith('<hr>') or line.startswith('<div class="divider">'):
+                    skip_section = False
+                else:
+                    continue
+            filtered_lines.append(line)
+        durchgefuehrte_tests = '\n'.join(filtered_lines)
         html += durchgefuehrte_tests
         html += '<div class="divider"></div>'
     
@@ -318,7 +340,7 @@ def generate_html_report():
         # First test report (oldest) gets "Detaillierte Analyse"
         first_report = read_markdown_file(test_report_files[0])
         if first_report:
-            html += "<h2>1. Detaillierte Analyse</h2>"
+            html += "<h1>Detaillierte Analyse</h1>"
             html += first_report
             html += '<div class="divider"></div>'
         
@@ -326,7 +348,7 @@ def generate_html_report():
         if len(test_report_files) >= 2:
             second_report = read_markdown_file(test_report_files[1])
             if second_report:
-                html += "<h2>2. Umfassendes Memo</h2>"
+                html += "<h1>Umfassendes Memo</h1>"
                 html += second_report
                 html += '<div class="divider"></div>'
         
@@ -341,7 +363,7 @@ def generate_html_report():
                     html += '<hr style="margin: 20px 0; border: 1px solid #bdc3c7;">'
     
     # Add JSON files from data/results
-    html += "<h2>Testergebnisse (JSON)</h2>"
+    html += "<h2>Anhang - Testergebnisse (JSON)</h2>"
     
     # Get all JSON files in data/results directory
     json_files = []
