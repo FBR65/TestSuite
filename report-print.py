@@ -3,6 +3,7 @@ import json
 import glob
 from datetime import datetime
 from pathlib import Path
+import configparser
 
 def read_markdown_file(file_path):
     """Read and return the content of a markdown file as formatted HTML."""
@@ -213,6 +214,73 @@ def format_json_as_html(data, indent=0):
             html += "</div>"
     return html
 
+def load_env_file():
+    """Load and parse the .env file to get model configurations."""
+    models = {}
+    
+    try:
+        with open('.env', 'r', encoding='utf-8') as file:
+            content = file.read()
+            
+            # Get AUDIO_MODEL
+            if 'VOXTRAL_MODEL=' in content:
+                for line in content.split('\n'):
+                    if line.startswith('VOXTRAL_MODEL='):
+                        value = line.split('=', 1)[1].strip().strip('"').strip("'")
+                        models['AUDIO_MODEL'] = value
+                        break
+            
+            # Get CODING_MODEL
+            if 'CODING_LLM_MODELS=' in content:
+                for line in content.split('\n'):
+                    if line.startswith('CODING_LLM_MODELS='):
+                        value = line.split('=', 1)[1].strip().strip('"').strip("'")
+                        try:
+                            # The values in .env have double-escaped quotes, so we need to unescape them first
+                            unescaped_value = value.replace('\\"', '"')
+                            coding_models = json.loads(unescaped_value)
+                            # Get the first model from the coding models
+                            models['CODING_MODEL'] = list(coding_models.keys())[0]
+                        except (json.JSONDecodeError, KeyError, IndexError, TypeError) as e:
+                            print(f"Error parsing CODING_LLM_MODELS: {e}")
+                        break
+            
+            # Get GENERAL_LLM models (all of them)
+            if 'LLM_MODELS=' in content:
+                for line in content.split('\n'):
+                    if line.startswith('LLM_MODELS='):
+                        value = line.split('=', 1)[1].strip().strip('"').strip("'")
+                        try:
+                            # The values in .env have double-escaped quotes, so we need to unescape them first
+                            unescaped_value = value.replace('\\"', '"')
+                            llm_models = json.loads(unescaped_value)
+                            models['GENERAL_LLM'] = list(llm_models.keys())
+                        except (json.JSONDecodeError, KeyError, TypeError) as e:
+                            print(f"Error parsing LLM_MODELS: {e}")
+                        break
+            
+            # Get VLM_MODEL
+            if 'VLM_LLM_MODELS=' in content:
+                for line in content.split('\n'):
+                    if line.startswith('VLM_LLM_MODELS='):
+                        value = line.split('=', 1)[1].strip().strip('"').strip("'")
+                        try:
+                            # The values in .env have double-escaped quotes, so we need to unescape them first
+                            unescaped_value = value.replace('\\"', '"')
+                            vlm_models = json.loads(unescaped_value)
+                            # Get the first model from the VLM models
+                            models['VLM'] = list(vlm_models.keys())[0]
+                        except (json.JSONDecodeError, KeyError, IndexError, TypeError) as e:
+                            print(f"Error parsing VLM_LLM_MODELS: {e}")
+                        break
+                        
+    except Exception as e:
+        print(f"Error reading .env file: {e}")
+        # Return empty models if file can't be read
+        return {}
+    
+    return models
+
 def get_test_report_files():
     """Get all test_report*.md files sorted by creation time (oldest first)."""
     pattern = "test_report_*.md"
@@ -331,6 +399,60 @@ def generate_html_report():
             filtered_lines.append(line)
         durchgefuehrte_tests = '\n'.join(filtered_lines)
         html += durchgefuehrte_tests
+        
+        # Add table with model names by category
+        models = load_env_file()
+        
+        html += """
+        <h2>Verprobte Modelle nach Kategorie</h2>
+        <table>
+            <tr>
+                <th>Kategorie</th>
+                <th>Modellname</th>
+            </tr>
+        """
+        
+        # Add AUDIO_MODEL
+        if 'AUDIO_MODEL' in models:
+            html += f"""
+            <tr>
+                <td>AUDIO_MODEL</td>
+                <td>{models['AUDIO_MODEL']}</td>
+            </tr>
+            """
+        
+        # Add CODING_MODEL
+        if 'CODING_MODEL' in models:
+            html += f"""
+            <tr>
+                <td>CODING_MODEL</td>
+                <td>{models['CODING_MODEL']}</td>
+            </tr>
+            """
+        
+        # Add GENERAL_LLM (all models)
+        if 'GENERAL_LLM' in models:
+            for model in models['GENERAL_LLM']:
+                html += f"""
+                <tr>
+                    <td>GENERAL_LLM</td>
+                    <td>{model}</td>
+                </tr>
+                """
+        
+        # Add VLM
+        if 'VLM' in models:
+            html += f"""
+            <tr>
+                <td>VLM (Vision Language Model)</td>
+                <td>{models['VLM']}</td>
+            </tr>
+            """
+        
+        html += """
+        </table>
+        """
+        
         html += '<div class="divider"></div>'
     
     # Get test report files and add them with specific headings
@@ -387,7 +509,7 @@ def generate_html_report():
     # HTML footer
     html += f"""
         <div class="timestamp">
-            Bericht erstellt am: {datetime.now().strftime("%d.%m.%Y %H:%M:%S")}
+            Stand: {datetime.now().strftime("%d.%m.%Y")}
         </div>
     </div>
 </body>
