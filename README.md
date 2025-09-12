@@ -510,18 +510,3 @@ LOG_LEVEL=DEBUG python main.py
 
 Dieses Projekt ist unter der MIT-Lizenz lizenziert. Siehe [`LICENSE`](LICENSE:1) für weitere Details.
 
-## Support
-
-Für Fragen und Unterstützung:
-
-- **Dokumentation**: Lesen Sie diese README und die technischen Anforderungen in [`requirements.md`](requirements.md:1)
-- **Fehlerprotokolle**: Prüfen Sie die Log-Dateien im `data/results/` Verzeichnis
-
-## Changelog
-
-### Version 1.0.0
-- Initial release mit vollständiger Test Suite Unterstützung
-- Multi-Model API Konfiguration
-- On-Prem API Unterstützung
-- Verbesserte Fehlerbehandlung und Logging
-- Automatische Berichterstattung
